@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lemin.h                                            :+:      :+:    :+:   */
+/*   ft_strdjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/10 19:18:53 by anmauffr          #+#    #+#             */
-/*   Updated: 2019/04/25 11:39:53 by anmauffr         ###   ########.fr       */
+/*   Created: 2019/04/21 19:21:02 by anmauffr          #+#    #+#             */
+/*   Updated: 2019/04/21 19:21:03 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEMIN_H
-# define LEMIN_H
+#include <libft.h>
 
-# include <libft.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h> // pour perror et peut etre rajouter errno.h
-# include <string.h> // pour strerror
-
-# define TRUE 1
-# define FALSE 0
-
-typedef struct	s_lemin
+char	*ft_strdjoin(char *s1, char const *s2)
 {
-	char	**file;
-}				t_lemin;
+	char	*str;
 
-#endif
+	if (s2)
+	{
+		if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+			return (NULL);
+		ft_strcat(str, s1);
+		ft_strcat(str, s2);
+		ft_strdel(&s1);
+		return (str);
+	}
+	return (NULL);
+}

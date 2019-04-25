@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/05 19:56:16 by anmauffr          #+#    #+#             */
-/*   Updated: 2019/03/07 00:40:37 by anmauffr         ###   ########.fr       */
+/*   Created: 2018/11/05 17:51:13 by judumay           #+#    #+#             */
+/*   Updated: 2019/04/24 18:17:22 by anmauffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
-	size_t len);
+				size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
@@ -109,7 +109,7 @@ char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
 size_t				ft_strclen(const char *s, char c);
 char				*ft_strfill(char *s, char c, size_t size);
 char				*ft_strsub_leakless(char *s, unsigned int start,
-	size_t len);
+				size_t len);
 char				*ft_strtoupper_leakless(char *s);
 char				*ft_stradd_leakless(char *s1, char c);
 char				*ft_strrev_leakless(char *s);
@@ -120,5 +120,6 @@ int					ft_pow(int x, int y);
 int					ft_intlen(int n);
 long				ft_atol(const char *str);
 int					ft_lstlen(t_list *beg);
+char				*ft_strdjoin(char *s1, char const *s2);
 
 #endif

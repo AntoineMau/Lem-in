@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anmauffr <anmauffr@student.42.fr>          +#+  +:+       +#+         #
+#    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/06 18:30:56 by anmauffr          #+#    #+#              #
-#    Updated: 2019/03/06 13:49:28 by anmauffr         ###   ########.fr        #
+#    Created: 2019/03/11 17:58:12 by judumay           #+#    #+#              #
+#    Updated: 2019/04/12 15:26:35 by judumay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,7 @@ SRCS_NAME = libft/ft_atoi.c \
 			libft/ft_intlen.c \
 			libft/ft_atol.c \
 			libft/ft_lstlen.c \
+			libft/ft_strdjoin.c \
 			get_next_line/get_next_line.c \
 			ft_printf/ft_printf.c \
 			ft_printf/ft_printf_c.c \
@@ -175,14 +176,15 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+	@echo -en "$(_GREEN)\t [OK]$(_DEF)\n\n"
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
-	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  $(NAME)  <============================================|$(_DEF)\n";\
+	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  $(NAME)   |============================================>$(_DEF)\n";\
 	else printf "\e[1A"; fi
 	$(eval FNCT = $(words $(SRCS)))
 	$(eval verif = $(shell echo $(verif) + 1 | bc ))
 	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 1000" | bc -l))
-	@printf " \n$(_GREEN)[%d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
+	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
 	@mkdir -p objs/libft
 	@mkdir -p objs/get_next_line
 	@mkdir -p objs/ft_printf
